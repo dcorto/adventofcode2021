@@ -18,7 +18,7 @@ class SolutionB extends Common {
     {
         $input = $this->loadInput(__DIR__."/input.txt");
         
-        $position = [0,0];
+        $position = [0,0,0];
         $solution = 0;
 
         foreach($input as $command) {
@@ -55,19 +55,20 @@ class SolutionB extends Common {
      
     private function goForward(array $current, int $units): array {
         $new = $current;
-        $new[0] = $new[0] + $units;    
+        $new[0] = $new[0] + $units;
+        $new[1] = $new[1] + ($new[2] * $units);   
         return $new;
     }
     
     private function goUp(array $current, int $units): array {
         $new = $current;
-        $new[1] = $new[1] - $units;        
+        $new[2] = $new[2] - $units;
         return $new;
     }
     
     private function goDown(array $current, int $units): array {    
-        $new = $current;
-        $new[1] = $new[1] + $units;        
+        $new = $current;        
+        $new[2] = $new[2] + $units;        
         return $new;
     }
 }
