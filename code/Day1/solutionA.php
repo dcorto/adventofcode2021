@@ -7,15 +7,14 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Advent\Common;
 
-class Solution extends Common {
+class SolutionA extends Common {
 
-    protected static $defaultName = 'solution:1';
+    protected static $defaultName = 'solution:1:a';
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $input = $this->loadInput(__DIR__."/input.txt");
-        
-        //Part one
+                
         $solution = 0;
         $last = null;
         foreach ($input as $measure) {
@@ -32,7 +31,7 @@ class Solution extends Common {
             $last = $measure;
         }
 
-        $this->printSolutionOne((string) $solution);
+        $this->printSolution((string) $solution);
 
         return Command::SUCCESS;
     }
