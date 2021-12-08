@@ -1,0 +1,10 @@
+version: "3.5"
+services:
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: adventofcode2021_php
+    volumes:
+      - ./:/src
+    command: "sleep infinity"
